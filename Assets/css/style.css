@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --section-background: #ececec;
+}
+
+
+
+
+/*Start Main title*/
+.main-title {
+    margin: 0 auto 80px;
+    border: 3px solid black;
+    font-size: 30px;
+    padding: 10px 20px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition);
+}
+
+.main-title::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title:hover::before {
+    z-index: -1;
+    animation: left-ani var(--main-transition) linear forwards;
+}
+
+.main-title:hover::after {
+    z-index: -1;
+    animation: right-ani var(--main-transition) linear forwards;
+}
+
+.main-title:hover {
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    transition-delay: var(--main-transition);
+}
+
+/* End Main Title */
+/* Start Header */
+header {
+    background-color: rgba(255, 255, 255, 1);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Adjust the opacity as needed */
+}
+
+.Logo {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+    /* 16 px relative to body */
+}
+
+.Navigation a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1em;
+    /* 16 px relative to body */
+    font-weight: 500;
+    padding-left: 30px;
+    position: relative;
+    /* Add relative positioning for the pseudo-element */
+}
+
+.Navigation a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    /* Height of the underline */
+    bottom: 0;
+    left: 10px;
+    background-color: transparent;
+    /* Initially transparent */
+    transform-origin: right;
+    /* Start the transition from the right */
+    transform: scaleX(0);
+    /* Initially scale the underline to 0 */
+    transition: transform 0.3s ease-in-out;
+    /* Add a smooth transition */
+}
+
+.Navigation a:hover::after {
+    transform-origin: left;
+    /* Transition to the left */
+    transform: scaleX(1);
+    /* Scale the underline to full width on hover */
+    background-color: #000;
+    /* Change the underline color on hover */
+    transition: transform 0.3s ease-in-out;
+    /* Add a smooth transition */
+    opacity: 0.5;
+    /* Change the opacity on hover */
+}
+
+/* End Header */
+
+/* Start Hero Section */
+section {
+    padding: 100px 200px;
+
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100vmax;
+    /* Set your desired maximum width */
+    display: flex;
+    align-items: center;
+    padding: 100px 200px;
+    background: url("../images/Pics/bg.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.main h2 {
+    color: white;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.main h2 span {
+    display: inline-block;
+    color: darkgray;
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.main h5 {
+    color: whitesmoke;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    transition: 1s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: 0.7s ease-in-out;
+}
+
+.social-media a {
+    color: white;
+    font-size: 1.7em;
+    padding-right: 30px;
+}
+
+.social-media a i {
+    transition: 0.9s ease;
+}
+
+.social-media a i:hover {
+    transform: scale(1.3rem);
+    transition: 0.9s ease all linear;
+    color: rgb(44, 44, 195);
+}
+
+.social-media a i.fa-github {
+    background-color: black;
+    border-radius: 50%;
+}
+
+.social-media a i.fa-github:hover {
+    color: black;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 50%;
+}
+
+/* End Hero section */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start Services */
+section .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+}
+
+section .content .card {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    border-radius: 14px;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    transition: transform 0.3s ease;
+}
+
+section .content .card:hover {
+    transform: scale(1.05);
+}
+
+.bg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 290px;
+    height: 240px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px);
+    border-radius: 10px;
+    overflow: hidden;
+    outline: 2px solid white;
+    transition: background-color 0.3s ease; /* Add smooth background color transition */
+}
+.blob {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    opacity: 1;
+    filter: blur(12px);
+    animation: blob-bounce 5s infinite ease;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: var(--main-color) 0.3s ease;
+}
+.card:hover .icon {
+    background-color: var(--main-color-alt);
+    color: white;
+}
+
+
+
+
+/* End Services */
+
+
+
+
+
+
+/*Start Animation*/
+@keyframes left-ani {
+    50% {
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        border-radius: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes right-ani {
+    50% {
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        border-radius: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes blob-bounce {
+    0% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+/* End Animation */
